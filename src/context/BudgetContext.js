@@ -10,7 +10,10 @@ export const BudgetsProvider = ({ children }) => {
   const [ budgets, setBudgets ] = useState([]);
   const [ expenses, setExpenses ] = useState([]);
 
-  const getBudgetExpenses = (budgetId) => {};
+  const getBudgetExpenses = (budgetId) =>{
+    return expenses.filter(expense => expense.budgetId === budgetId);
+  };
+  
   const addExpense = () =>{};
   const addBudget = () =>{};
   const deleteBudget = () =>{};
