@@ -30,7 +30,12 @@ export const BudgetsProvider = ({ children }) => {
     });
   };
 
-  const deleteBudget = () =>{};
+  const deleteBudget = ({ id }) =>{
+    // TODO deal with expenses
+    setBudgets(prevBudgets => {
+      return prevBudgets.filter(budget => budget.id !== id);
+    });
+  };
 
   const deleteExpense = ({ id }) =>{
     setExpenses(prevExpenses => {
