@@ -1,4 +1,5 @@
 import { createContext, useContext, useState } from "react";
+import { v4 as uuidV4 } from "uuid";
 
 const BudgetsContext = createContext();
 
@@ -13,10 +14,20 @@ export const BudgetsProvider = ({ children }) => {
   const getBudgetExpenses = (budgetId) =>{
     return expenses.filter(expense => expense.budgetId === budgetId);
   };
-  
+
   const addExpense = () =>{};
-  const addBudget = () =>{};
+
+  const addBudget = ({ name, max }) =>{
+    setBudgets(prevBudget => {
+      if(prevBudget.find(budget => budget === budget.name)){
+        return prevBudget;
+      };
+      return [...prevBudget, { id: uuidV4(), name, max }];
+    });
+  };
+
   const deleteBudget = () =>{};
+  
   const deleteExpense = () =>{};
 
   return(
