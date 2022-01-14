@@ -15,19 +15,23 @@ export const BudgetsProvider = ({ children }) => {
     return expenses.filter(expense => expense.budgetId === budgetId);
   };
 
-  const addExpense = () =>{};
+  const addExpense = ({ budgetId, amount, description }) =>{
+    setExpenses(prevExpenses => {
+      return [...prevExpenses, { id: uuidV4(), budgetId, amount, description }];
+    })
+  };
 
   const addBudget = ({ name, max }) =>{
-    setBudgets(prevBudget => {
-      if(prevBudget.find(budget => budget === budget.name)){
-        return prevBudget;
+    setBudgets(prevBudgets => {
+      if(prevBudgets.find(budget => budget === budget.name)){
+        return prevBudgets;
       };
-      return [...prevBudget, { id: uuidV4(), name, max }];
+      return [...prevBudgets, { id: uuidV4(), name, max }];
     });
   };
 
   const deleteBudget = () =>{};
-  
+
   const deleteExpense = () =>{};
 
   return(
