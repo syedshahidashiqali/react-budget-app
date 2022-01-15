@@ -14,7 +14,7 @@ function App() {
   const [addExpenseModalBudgetId, setAddExpenseModalBudgetId] = useState();
   const [viewExpensesModalBudgetId, setViewExpensesModalBudgetId] = useState();
   const { budgets, getBudgetExpenses } = useBudgets();
-  console.log(budgets)
+  // console.log(budgets)
 
   const openAddExpenseModal = (budgetId) => {
     setShowAddExpenseModal(true);
